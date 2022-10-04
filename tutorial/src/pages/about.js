@@ -1,12 +1,29 @@
 import React from 'react';
 import Layout from '../layouts/Layout/Layout';
+import styled from 'styled-components';
 
-function About() {
+export default function About() {
   return (
     <Layout>
-      <h1>About</h1>
+      <Wrapper>
+        <h1>About</h1>
+
+        <p className="text">
+          blablaoblaobalogkwogkowkfg baobaobkaobkao lorem w jfiwjfiwfjw
+        </p>
+      </Wrapper>
     </Layout>
   );
 }
 
-export default About;
+const Wrapper = styled.section`
+  color: red;
+
+  h1 {
+    color: yellowgreen;
+  }
+
+  .text {
+    text-transform: uppercase;
+  }
+`;
