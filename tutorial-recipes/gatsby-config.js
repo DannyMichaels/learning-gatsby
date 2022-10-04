@@ -6,6 +6,28 @@
 
 module.exports = {
   /* Your site config here */
+
+  // siteMetadata can be accessed in graphql
+  siteMetadata: {
+    title: 'Simply Recipes',
+    description: 'Nice and clean recipes site',
+    author: 'Daniel',
+    person: {
+      name: 'Daniel',
+      age: 22,
+    },
+    simpleData: ['item 1', 'item 2'],
+    complexData: [
+      {
+        name: 'Daniel',
+        age: 22,
+      },
+      {
+        name: 'Sean',
+        age: 21,
+      },
+    ],
+  },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
