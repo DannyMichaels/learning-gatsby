@@ -5,11 +5,13 @@ import { Link, graphql } from 'gatsby';
 // import RecipesList from '../components/RecipesList';
 // import SEO from '../components/SEO';
 
-const About = ({
-  data: {
-    allContentfulRecipe: { nodes: recipes },
-  },
-}) => {
+const About = (
+  {
+    // data: {
+    // allContentfulRecipe: { nodes: recipes },
+    // },
+  }
+) => {
   return (
     <Layout>
       {/* <SEO title="About" /> */}
