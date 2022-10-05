@@ -34,7 +34,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
 
-    // can get these images using graphql
+    // can get these images using graphql with file/allFile fields
     {
       resolve: `gatsby-source-filesystem`,
       options: {
