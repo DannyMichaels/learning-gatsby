@@ -1,7 +1,33 @@
 import React from 'react';
 import Layout from './../layouts/Layout/Layout';
+import RecipesList from '../components/RecipesList';
+import { useStaticQuery, graphql } from 'gatsby';
+// import { getAllRecipes } from '../queries/recipes';
+
+export const getAllRecipes = graphql`
+  query {
+    allContentfulRecipe(sort: { fields: title, order: ASC }) {
+      nodes {
+        title
+        id
+        cookTime
+        prepTime
+        content {
+          tags
+        }
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+        }
+      }
+    }
+  }
+`;
 
 function Recipes() {
+  const {
+    allContentfulRecipe: { nodes: recipes },
+  } = useStaticQuery(getAllRecipes);
+
   return (
     <Layout>
       {/* <SEO title= "Contact" /> */}
@@ -41,7 +67,7 @@ function Recipes() {
         </section>
         <section className="featured-recipes">
           <h5>Look at this Awesomesouce!</h5>
-          {/* <RecipesList recipes={recipes} /> */}
+          <RecipesList recipes={recipes} />
         </section>
       </main>
     </Layout>

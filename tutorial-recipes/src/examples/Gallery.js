@@ -1,5 +1,5 @@
 import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
@@ -28,17 +28,21 @@ export default function Gallery() {
 
   return (
     <Wrapper>
-      {nodes.map((image, idx) => (
-        <article key={idx} className="item">
-          {/* images are greyed because grayscale is true in transformOptions */}
-          <GatsbyImage
-            image={image.childImageSharp.gatsbyImageData}
-            alt={image.name}
-            className="gallery-img"
-          />
-          <p>{image.name}</p>
-        </article>
-      ))}
+      {nodes.map((image, idx) => {
+        const pathToImage = getImage(image);
+        return (
+          <article key={idx} className="item">
+            {/* images are greyed because grayscale is true in transformOptions */}
+            <GatsbyImage
+              image={pathToImage}
+              // image={image.childImageSharp.gatsbyImageData}
+              alt={image.name}
+              className="gallery-img"
+            />
+            <p>{image.name}</p>
+          </article>
+        );
+      })}
     </Wrapper>
   );
 }
