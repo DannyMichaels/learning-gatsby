@@ -24,14 +24,15 @@ export const getAllRecipes = graphql`
 `;
 
 function AllRecipes() {
-  const { allContentfulRecipe } = useStaticQuery(getAllRecipes);
+  const {
+    allContentfulRecipe: { nodes },
+  } = useStaticQuery(getAllRecipes);
 
   return (
-    <div>
-      <h4>All Recipes</h4>
-      <TagsList recipes={allContentfulRecipe.nodes} />
-      <RecipesList recipes={allContentfulRecipe.nodes} />
-    </div>
+    <section className="recipes-container">
+      <TagsList recipes={nodes} />
+      <RecipesList recipes={nodes} />
+    </section>
   );
 }
 

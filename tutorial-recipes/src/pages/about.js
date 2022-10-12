@@ -2,19 +2,17 @@ import React from 'react';
 import Layout from '../layouts/Layout/Layout';
 import { StaticImage } from 'gatsby-plugin-image';
 import { Link, graphql } from 'gatsby';
-// import RecipesList from '../components/RecipesList';
-// import SEO from '../components/SEO';
+import RecipesList from '../components/RecipesList';
+import SEO from '../components/SEO';
 
-const About = (
-  {
-    // data: {
-    // allContentfulRecipe: { nodes: recipes },
-    // },
-  }
-) => {
+const About = ({
+  data: {
+    allContentfulRecipe: { nodes: recipes },
+  },
+}) => {
   return (
     <Layout>
-      {/* <SEO title="About" /> */}
+      <SEO title="About" />
       <main className="page">
         <section className="about-page">
           <article>
@@ -40,30 +38,30 @@ const About = (
         </section>
         <section className="featured-recipes">
           <h5>Look at this Awesomesouce!</h5>
-          {/* <RecipesList recipes={recipes} /> */}
+          <RecipesList recipes={recipes} />
         </section>
       </main>
     </Layout>
   );
 };
 
-// export const query = graphql`
-//   {
-//     allContentfulRecipe(
-//       sort: { fields: title, order: ASC }
-//       filter: { featured: { eq: true } }
-//     ) {
-//       nodes {
-//         id
-//         title
-//         cookTime
-//         prepTime
-//         image {
-//           gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
-//         }
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query GetFeaturedRecipes {
+    allContentfulRecipe(
+      sort: { fields: title, order: ASC }
+      filter: { featured: { eq: true } }
+    ) {
+      nodes {
+        title
+        id
+        cookTime
+        prepTime
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+        }
+      }
+    }
+  }
+`;
 
 export default About;
