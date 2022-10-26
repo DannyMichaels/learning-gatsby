@@ -18,6 +18,7 @@ module.exports = [
         'http://localhost:8000',
         'https://endearing-pony-6b8b82.netlify.app/',
         'http://localhost:1337',
+        'https://limitless-bayou-32293.herokuapp.com',
       ],
     },
   },
