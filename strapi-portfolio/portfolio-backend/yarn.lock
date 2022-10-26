@@ -3619,7 +3619,7 @@
   "resolved" "https://registry.npmjs.org/cloudinary-core/-/cloudinary-core-2.13.0.tgz"
   "version" "2.13.0"
 
-"cloudinary@^1.25.1":
+"cloudinary@^1.25.1", "cloudinary@^1.32.0":
   "integrity" "sha512-hbc5/ilOkwD49+Lucqze3z+2Tejc3YdH4tkI+y1Ciabi9Qh9MYcy4M3rYeDAYiMS/jIz5FfHOzx+JjVnPJxNAQ=="
   "resolved" "https://registry.npmjs.org/cloudinary/-/cloudinary-1.32.0.tgz"
   "version" "1.32.0"
