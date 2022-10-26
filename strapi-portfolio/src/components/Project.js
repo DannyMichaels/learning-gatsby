@@ -16,7 +16,7 @@ const Project = ({
   return (
     <article className="project">
       <GatsbyImage
-        image={getImage(image)}
+        image={getImage(image.localFile)}
         className="project-img"
         alt={title}
       />
