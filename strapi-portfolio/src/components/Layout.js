@@ -15,10 +15,7 @@ const Layout = ({ children }) => {
     <>
       <Navbar toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      <div style={{ minHeight: 'calc(100vh - 224px)' }}>
-        
-      {children}
-      </div>
+      <div style={{ minHeight: 'calc(100vh - 224px)' }}>{children}</div>
       <Footer />
     </>
   );

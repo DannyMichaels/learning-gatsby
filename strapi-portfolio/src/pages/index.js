@@ -6,13 +6,47 @@ import Jobs from '../components/Jobs';
 import Projects from '../components/Projects';
 import Seo from '../components/Seo';
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  const {
+    allStrapiProject: { nodes: projects },
+  } = data;
+
   return (
     <>
+      <Seo title="Home" />
       <Hero />
       <Jobs />
+      <Projects title="featured projects" showLink projects={projects} />
     </>
   );
 };
+
+export const query = graphql`
+  query {
+    allStrapiProject(filter: { featured: { eq: true } }) {
+      nodes {
+        description
+        id
+        title
+        url
+        stack {
+          id
+          title
+        }
+        slug
+        github
+        featured
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
+            }
+          }
+        }
+      }
+      totalCount
+    }
+  }
+`;
 
 export default IndexPage;

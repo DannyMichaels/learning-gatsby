@@ -2,8 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-
-
 /**
  * Configure your Gatsby site with this file.
  *
@@ -40,7 +38,7 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_API_URL || 'http://localhost:1337/api',
         accessToken: process.env.STRAPI_TOKEN,
-        collectionTypes: [`job`, `user`],
+        collectionTypes: [`job`, `project`],
       },
     },
   ],
