@@ -1,5 +1,6 @@
 import React from 'react';
 import Seo from '../components/Seo';
+
 const Contact = () => {
   const [formData, setFormData] = React.useState({
     name: '',
@@ -7,9 +8,22 @@ const Contact = () => {
     message: '',
   });
 
+  const getIp = async () => {
+    const response = await fetch(
+      'https://gitcat-cors-anywhere-proxy.herokuapp.com/https://api.ipify.org/?format=json',
+      {
+        method: 'GET',
+      }
+    );
+
+    const data = await response.json();
+    console.log({ data });
+    return data.ip;
+  };
+
   const handleSubmit = async e => {
     e.preventDefault();
-
+    const ip = await getIp();
     const url = `${process.env.STRAPI_API_URL}/api/emails`;
     const response = await fetch(url, {
       method: 'POST',
@@ -18,7 +32,7 @@ const Contact = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        data: formData,
+        data: { ...formData, ip },
       }),
     });
 

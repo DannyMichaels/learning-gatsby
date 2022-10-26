@@ -14,7 +14,11 @@ module.exports = [
       headers: '*',
       header: '*', // Deprecated
       enabled: true,
-      origin: ['http://localhost:8000', 'https://foo.example'],
+      origin: [
+        'http://localhost:8000',
+        'https://endearing-pony-6b8b82.netlify.app/',
+        'http://localhost:1337',
+      ],
     },
   },
 ];
